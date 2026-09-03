@@ -6,7 +6,7 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://library-system-three-sigma.vercel.app"
+        "https://library-system-py5yo8bcb-jaykhatri1.vercel.app"
     ],
     credentials: true,
     allowedHeaders: [
