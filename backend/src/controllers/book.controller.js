@@ -59,7 +59,7 @@ const addBook = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+        
         });
     }
 };
@@ -89,7 +89,7 @@ const getBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -127,7 +127,7 @@ const getBook = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -228,7 +228,7 @@ const updateBook = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+        
         });
     }
 };
@@ -276,7 +276,7 @@ const deleteBook = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -305,7 +305,7 @@ const searchBooks = async (req, res) => {
 
         res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
 
     }

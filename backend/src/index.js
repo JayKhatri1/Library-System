@@ -20,7 +20,7 @@ const startServer = async () => {
             console.log(`Server is running on Port : ${process.env.PORT}`);
         }); 
     } catch (error) {
-        console.log("MongoDB connection failed.",err);
+        console.log("MongoDB connection failed.",error);
     }
 }
 

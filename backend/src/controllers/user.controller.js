@@ -2,31 +2,8 @@
 import { User } from "../models/user.model.js";
 import { Transaction } from "../models/transaction.model.js";
 import { Book } from "../models/book.model.js";
-import jwt from "jsonwebtoken";
-
-
-// ==========================================
-// GENERATE JWT TOKEN
-// ==========================================
-
-const generateToken = (user) => {
-
-    if (!process.env.JWT_SECRET) {
-        throw new Error("JWT_SECRET is missing in .env");
-    }
-
-    return jwt.sign(
-        {
-            id: user.id,
-            email: user.email,
-            role: user.role
-        },
-        process.env.JWT_SECRET,
-        {
-            expiresIn: process.env.JWT_EXPIRES_IN || "1d"
-        }
-    );
-};
+// import jwt from "jsonwebtoken";
+import generateToken from "../utils/generateToken.js";
 
 
 // ==========================================
@@ -76,7 +53,7 @@ const registerUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -141,7 +118,7 @@ const loginUser = async (req, res) => {
         if (!user) {
             return res.status(401).json({
                 message: "Invalid email or password!"
-            });
+            }).select("+password");
         }
 
 
@@ -190,7 +167,7 @@ const loginUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -214,7 +191,7 @@ const logoutUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+        
         });
     }
 };
@@ -251,7 +228,7 @@ const getUserProfile = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -292,7 +269,7 @@ const getMyBorrowedBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -333,7 +310,7 @@ const getMyReturnedBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+        
         });
     }
 };
@@ -373,7 +350,7 @@ const getMyFines = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -453,7 +430,7 @@ const getUserDashboard = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -528,7 +505,7 @@ const getAllBooksForUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -567,7 +544,7 @@ const getBookByIdForUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };

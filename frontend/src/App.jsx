@@ -40,7 +40,7 @@ function App() {
                     element={<Login />}
                 />
 
-                <Route path="/" element={<Login />} />
+
 
                 <Route path="/register" element={<Register />} />
 
@@ -88,9 +88,8 @@ function App() {
                 <Route
                     path="/admin"
                     element={
-                        <ProtectedRoute allowedRole="admin">
-                            <AdminLayout />
-                        </ProtectedRoute>
+
+                        <AdminLayout />
                     }
                 >
 

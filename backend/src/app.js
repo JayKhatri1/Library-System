@@ -1,15 +1,44 @@
 import express from "express";
 import cors from "cors";
+import helmet from "helmet";
+import { rateLimit } from "express-rate-limit";
 
 const app = express();
+app.use(helmet());
+
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 50,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        message:
+            "Too many requests. Please try again later."
+    }
+});
+
+app.use(
+    "/api/v1/users/login",
+    authLimiter
+);
+
+app.use(
+    "/api/v1/users/register",
+    authLimiter
+);
 
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        // "https://library-system-three-sigma.vercel.app"
+
+        // Stable production domain
+        "https://library-system-three-sigma.vercel.app",
+
+        // Vercel deployment/preview URLs
         /^https:\/\/library-system-[a-z0-9]+-jaykhatri1\.vercel\.app$/
     ],
     credentials: true,
+
     allowedHeaders: [
         "Content-Type",
         "Authorization"
@@ -23,7 +52,9 @@ app.use(cors({
     ]
 }));
 
-app.use(express.json());
+app.use(express.json({
+    limit: "10kb"
+}));
 
 // import routes :
 

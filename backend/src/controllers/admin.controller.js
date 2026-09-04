@@ -202,7 +202,7 @@ const getAllUsers = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+    
         });
     }
 };
@@ -234,7 +234,7 @@ const getAllBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -268,7 +268,7 @@ const getAllTransactions = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -308,7 +308,7 @@ const getOverdueBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };
@@ -372,7 +372,7 @@ const getAdminDashboard = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            error: error.message
+            
         });
     }
 };

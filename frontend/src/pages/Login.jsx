@@ -26,8 +26,6 @@ const Login = () => {
                 JSON.stringify(response.data.user)
             );
 
-            console.log("LOGIN RESPONSE:", response.data);
-
             const user = response.data.user;
 
             if (user.role === "admin") {

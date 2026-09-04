@@ -29,9 +29,6 @@ const ProtectedRoute = ({ children, allowedRole }) => {
         return <Navigate to="/" replace />;
     }
 
-    console.log("PROTECTED ROUTE USER:", user);
-    console.log("ALLOWED ROLE:", allowedRole);
-
     // User doesn't have permission
     if (user.role !== allowedRole) {
 

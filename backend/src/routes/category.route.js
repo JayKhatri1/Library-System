@@ -8,28 +8,66 @@ import {
     deleteCategory
 } from "../controllers/category.controller.js";
 
+import {
+    verifyToken,
+    isAdmin
+} from "../middleware/auth.middleware.js";
+
 
 const router = Router();
 
 
-// Add category
-router.route("/addcategory").post(addCategory);
+// ==========================================
+// ADMIN - ADD CATEGORY
+// ==========================================
+
+router.route("/addcategory").post(
+    verifyToken,
+    isAdmin,
+    addCategory
+);
 
 
-// Get all categories
-router.route("/getall").get(getCategories);
+// ==========================================
+// GET ALL CATEGORIES
+// ==========================================
+
+router.route("/getall").get(
+    verifyToken,
+    getCategories
+);
 
 
-// Get one category
-router.route("/:id").get(getCategory);
+// ==========================================
+// GET ONE CATEGORY
+// ==========================================
+
+router.route("/:id").get(
+    verifyToken,
+    getCategory
+);
 
 
-// Update category
-router.route("/:id").put(updateCategory);
+// ==========================================
+// ADMIN - UPDATE CATEGORY
+// ==========================================
+
+router.route("/:id").put(
+    verifyToken,
+    isAdmin,
+    updateCategory
+);
 
 
-// Delete category
-router.route("/:id").delete(deleteCategory);
+// ==========================================
+// ADMIN - DELETE CATEGORY
+// ==========================================
+
+router.route("/:id").delete(
+    verifyToken,
+    isAdmin,
+    deleteCategory
+);
 
 
 export default router;
