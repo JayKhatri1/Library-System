@@ -4,7 +4,39 @@ import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
 
 const app = express();
+
+app.set("trust proxy", 1);
+
 app.use(helmet());
+
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+
+        // Stable production domain
+        "https://library-system-three-sigma.vercel.app",
+
+        // Vercel deployment/preview URLs
+        /^https:\/\/library-system-[a-z0-9-]+-jaykhatri1\.vercel\.app$/
+    ],
+    credentials: true,
+
+    allowedHeaders: [
+        "Content-Type",
+        "Authorization"
+    ],
+    methods: [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+    ]
+}));
+
+app.use(express.json({
+    limit: "10kb"
+}));
 
 const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -27,34 +59,7 @@ app.use(
     authLimiter
 );
 
-app.use(cors({
-    origin: [
-        "http://localhost:5173",
 
-        // Stable production domain
-        "https://library-system-three-sigma.vercel.app",
-
-        // Vercel deployment/preview URLs
-        /^https:\/\/library-system-[a-z0-9]+-jaykhatri1\.vercel\.app$/
-    ],
-    credentials: true,
-
-    allowedHeaders: [
-        "Content-Type",
-        "Authorization"
-    ],
-    methods: [
-        "GET",
-        "POST",
-        "PUT",
-        "DELETE",
-        "OPTIONS"
-    ]
-}));
-
-app.use(express.json({
-    limit: "10kb"
-}));
 
 // import routes :
 
