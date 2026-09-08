@@ -17,9 +17,7 @@ import {
 const router = Router();
 
 
-// ==========================================
 // ADMIN DASHBOARD
-// ==========================================
 
 router
     .route("/dashboard")
@@ -29,10 +27,7 @@ router
         getAdminDashboard
     );
 
-
-// ==========================================
 // ALL USERS
-// ==========================================
 
 router
     .route("/users")
@@ -42,10 +37,7 @@ router
         getAllUsers
     );
 
-
-// ==========================================
 // ALL BOOKS
-// ==========================================
 
 router
     .route("/books")
@@ -55,10 +47,7 @@ router
         getAllBooks
     );
 
-
-// ==========================================
 // ALL TRANSACTIONS
-// ==========================================
 
 router
     .route("/transactions")
@@ -68,10 +57,7 @@ router
         getAllTransactions
     );
 
-
-// ==========================================
 // OVERDUE BOOKS
-// ==========================================
 
 router
     .route("/overdue")

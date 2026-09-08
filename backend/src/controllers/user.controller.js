@@ -1,4 +1,3 @@
-
 import { User } from "../models/user.model.js";
 import { Transaction } from "../models/transaction.model.js";
 import { Book } from "../models/book.model.js";
@@ -6,9 +5,7 @@ import { Book } from "../models/book.model.js";
 import generateToken from "../utils/generateToken.js";
 
 
-// ==========================================
 // REGISTER USER
-// ==========================================
 
 const registerUser = async (req, res) => {
     try {
@@ -59,9 +56,7 @@ const registerUser = async (req, res) => {
 };
 
 
-// ==========================================
 // LOGIN USER
-// ==========================================
 
 const loginUser = async (req, res) => {
 
@@ -79,9 +74,9 @@ const loginUser = async (req, res) => {
             email.trim().toLowerCase();
 
 
-        // ==========================================
+    
         // ADMIN LOGIN
-        // ==========================================
+    
 
         if (
             process.env.ADMIN_EMAIL &&
@@ -107,9 +102,9 @@ const loginUser = async (req, res) => {
         }
 
 
-        // ==========================================
+    
         // FIND USER
-        // ==========================================
+    
 
         const user = await User.findOne({
             email: normalizedEmail
@@ -122,9 +117,9 @@ const loginUser = async (req, res) => {
         }
 
 
-        // ==========================================
+    
         // COMPARE PASSWORD
-        // ==========================================
+    
 
         const isPasswordCorrect =
             await user.comparePassword(password);
@@ -136,9 +131,9 @@ const loginUser = async (req, res) => {
         }
 
 
-        // ==========================================
+    
         // USER OBJECT
-        // ==========================================
+    
 
         const loggedInUser = {
             id: user._id.toString(),
@@ -148,9 +143,9 @@ const loginUser = async (req, res) => {
         };
 
 
-        // ==========================================
+    
         // GENERATE JWT
-        // ==========================================
+    
 
         const token = generateToken(loggedInUser);
 
@@ -173,9 +168,7 @@ const loginUser = async (req, res) => {
 };
 
 
-// ==========================================
 // LOGOUT USER
-// ==========================================
 
 const logoutUser = async (req, res) => {
 
@@ -197,9 +190,7 @@ const logoutUser = async (req, res) => {
 };
 
 
-// ==========================================
 // GET USER PROFILE
-// ==========================================
 
 const getUserProfile = async (req, res) => {
 
@@ -234,9 +225,7 @@ const getUserProfile = async (req, res) => {
 };
 
 
-// ==========================================
 // GET MY BORROWED BOOKS
-// ==========================================
 
 const getMyBorrowedBooks = async (req, res) => {
 
@@ -275,9 +264,7 @@ const getMyBorrowedBooks = async (req, res) => {
 };
 
 
-// ==========================================
 // GET MY RETURNED BOOKS
-// ==========================================
 
 const getMyReturnedBooks = async (req, res) => {
 
@@ -316,9 +303,7 @@ const getMyReturnedBooks = async (req, res) => {
 };
 
 
-// ==========================================
 // GET MY FINES
-// ==========================================
 
 const getMyFines = async (req, res) => {
 
@@ -356,9 +341,7 @@ const getMyFines = async (req, res) => {
 };
 
 
-// ==========================================
 // GET USER DASHBOARD
-// ==========================================
 
 const getUserDashboard = async (req, res) => {
     try {
@@ -436,9 +419,7 @@ const getUserDashboard = async (req, res) => {
 };
 
 
-// ==========================================
 // GET ALL BOOKS FOR USER
-// ==========================================
 
 const getAllBooksForUser = async (req, res) => {
 
@@ -511,9 +492,7 @@ const getAllBooksForUser = async (req, res) => {
 };
 
 
-// ==========================================
 // GET BOOK BY ID FOR USER
-// ==========================================
 
 const getBookByIdForUser = async (req, res) => {
 
@@ -550,9 +529,7 @@ const getBookByIdForUser = async (req, res) => {
 };
 
 
-// ==========================================
 // EXPORT
-// ==========================================
 
 export {
     registerUser,

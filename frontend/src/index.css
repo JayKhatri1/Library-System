@@ -2073,6 +2073,567 @@ a {
   background: #1d4ed8;
 }
 
+/* ==========================================
+   FINAL ADMIN PAGE SPACING
+========================================== */
+
+/* Main admin content area */
+main {
+    box-sizing: border-box;
+}
+
+/* Users page */
+.admin-users-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px 25px 50px 25px;
+    box-sizing: border-box;
+}
+
+/* Books page */
+.admin-books-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px 25px 50px 25px;
+    box-sizing: border-box;
+}
+
+/* Header spacing */
+.admin-page-header {
+    margin-bottom: 30px !important;
+}
+
+/* Users table */
+.admin-users-table-container {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+/* Books grid */
+.admin-books-grid {
+    width: 100%;
+    margin-top: 10px;
+    gap: 25px !important;
+    padding-bottom: 40px;
+}
+
+/* Book cards */
+.admin-book-card {
+    margin: 0;
+}
+
+/* ==========================================
+   DESKTOP - MORE BREATHING ROOM
+========================================== */
+
+@media (min-width: 1200px) {
+
+    .admin-users-page,
+    .admin-books-page {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .admin-users-page,
+    .admin-books-page {
+        padding: 15px 15px 35px;
+    }
+
+}
+
+/* ==========================================
+   ADMIN MAIN CONTENT
+========================================== */
+
+.dl-admin-main {
+    box-sizing: border-box;
+    min-width: 0;
+    background: #f5f7fb;
+}
+
+.dl-admin-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 40px 50px;
+}
+
+/* Collapsed sidebar */
+.dl-main-closed {
+    margin-left: 0;
+}
+
+/* Open sidebar */
+.dl-main-open {
+    margin-left: 0;
+}
+
+/* Smaller screens */
+@media (max-width: 900px) {
+    .dl-admin-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dl-admin-content {
+        padding: 20px 15px 35px;
+    }
+}
+
+/* /* =====================================================
+   FINAL ADMIN CONTENT SPACING
+   Applies to Dashboard, Users, Books, Categories,
+   Transactions and Overdue pages
+===================================================== */
+
+.dl-admin-main {
+    box-sizing: border-box !important;
+    width: 100%;
+    min-width: 0;
+    padding: 32px 40px 50px !important;
+    background: #f5f7fb;
+}
+
+/* Make every page inside the admin area use full width */
+.dl-admin-main > * {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* =====================================================
+   PAGE HEADER SPACING
+===================================================== */
+
+.admin-page-header {
+    margin-bottom: 28px !important;
+}
+
+/* =====================================================
+   USERS
+===================================================== */
+
+.admin-users-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   BOOKS
+===================================================== */
+
+.admin-books-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.admin-books-grid {
+    margin-top: 28px !important;
+    gap: 24px !important;
+}
+
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+.admin-categories-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.admin-categories-grid {
+    margin-top: 28px !important;
+    gap: 24px !important;
+}
+
+/* =====================================================
+   TRANSACTIONS
+===================================================== */
+
+.admin-transactions-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.admin-transactions-table-container {
+    margin-top: 24px !important;
+    margin-bottom: 40px;
+}
+
+/* =====================================================
+   OVERDUE
+===================================================== */
+
+.admin-overdue-page {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.admin-overdue-content {
+    margin-top: 28px !important;
+    margin-bottom: 40px;
+}
+
+/* =====================================================
+   TABLE / CARD CONTAINERS
+===================================================== */
+
+.admin-table-container,
+.admin-users-table-container {
+    margin-top: 24px !important;
+    margin-bottom: 40px !important;
+}
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 1200px) {
+    .dl-admin-main {
+        padding: 32px 48px 55px !important;
+    }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+    .dl-admin-main {
+        padding: 28px 28px 45px !important;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+    .dl-admin-main {
+        padding: 22px 16px 35px !important;
+    }
+}
+
+/* =========================================
+   EXTRA TOP SPACE FOR ADMIN PAGES
+========================================= */
+
+/* Categories page */
+.admin-categories-page {
+    padding-top: 25px !important;
+}
+
+/* Transactions page */
+.admin-transactions-page {
+    padding-top: 25px !important;
+}
+
+/* Overdue Books page */
+.admin-overdue-page {
+    padding-top: 25px !important;
+} */
+
+/* =========================================================
+   ADMIN CONTENT - CENTERED PROFESSIONAL LAYOUT
+========================================================= */
+
+.dl-admin-main {
+    width: 100%;
+    box-sizing: border-box;
+    background: #f5f7fb;
+}
+
+/* Main content wrapper */
+.dl-admin-content {
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+    padding: 38px 40px 60px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   ALL ADMIN PAGES
+========================================================= */
+
+.admin-users-page,
+.admin-books-page,
+.admin-categories-page,
+.admin-transactions-page,
+.admin-overdue-page {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE TITLE / HEADER
+========================================================= */
+
+.admin-page-header {
+    width: 100%;
+    margin-top: 10px !important;
+    margin-bottom: 32px !important;
+}
+
+/* Title */
+.admin-page-header h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* Subtitle */
+.admin-page-header p {
+    margin-top: 0;
+}
+
+/* =========================================================
+   USERS TABLE
+========================================================= */
+
+.admin-users-table-container {
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+/* =========================================================
+   BOOKS
+========================================================= */
+
+.admin-books-grid {
+    width: 100%;
+    margin: 0 auto;
+    gap: 24px !important;
+}
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.admin-categories-grid {
+    width: 100%;
+    margin: 0 auto;
+    gap: 24px !important;
+}
+
+/* =========================================================
+   TRANSACTIONS
+========================================================= */
+
+.admin-transactions-table-container {
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+/* =========================================================
+   OVERDUE
+========================================================= */
+
+.admin-overdue-content {
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+/* =========================================================
+   LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1600px) {
+    .dl-admin-content {
+        max-width: 1750px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .admin-users-page,
+    .admin-books-page,
+    .admin-categories-page,
+    .admin-transactions-page,
+    .admin-overdue-page {
+        max-width: 1600px;
+    }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+    .dl-admin-content {
+        padding: 32px 30px 50px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+    .dl-admin-content {
+        padding: 25px 16px 40px;
+    }
+
+    .admin-users-page,
+    .admin-books-page,
+    .admin-categories-page,
+    .admin-transactions-page,
+    .admin-overdue-page {
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   ADMIN INNER PAGES - CENTER ALIGNMENT
+   Transactions / Categories / Overdue
+========================================================= */
+
+/* Transactions */
+.admin-transactions-page {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto !important;
+    padding: 25px 20px 50px !important;
+    box-sizing: border-box;
+}
+
+/* Categories */
+.admin-categories-page {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto !important;
+    padding: 25px 20px 50px !important;
+    box-sizing: border-box;
+}
+
+/* Overdue */
+.admin-overdue-page {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto !important;
+    padding: 25px 20px 50px !important;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TRANSACTIONS TABLE
+========================================================= */
+
+.admin-transactions-table-container {
+    width: 100%;
+    margin: 28px auto 0 !important;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CATEGORIES GRID
+   NOTE: actual class is admin-category-grid
+========================================================= */
+
+.admin-category-grid {
+    width: 100%;
+    margin: 28px auto 0 !important;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px !important;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   OVERDUE CONTENT
+========================================================= */
+
+.admin-overdue-page .admin-empty-state,
+.admin-overdue-page .overdue-list {
+    width: 100%;
+    margin: 28px auto 0 !important;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.admin-transactions-page .admin-page-header,
+.admin-categories-page .admin-page-header,
+.admin-overdue-page .admin-page-header {
+    width: 100%;
+    margin-top: 5px !important;
+    margin-bottom: 28px !important;
+}
+
+
+/* =========================================================
+   LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1600px) {
+
+    .admin-transactions-page,
+    .admin-categories-page,
+    .admin-overdue-page {
+        max-width: 1580px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .admin-transactions-page,
+    .admin-categories-page,
+    .admin-overdue-page {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .admin-category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .admin-transactions-page,
+    .admin-categories-page,
+    .admin-overdue-page {
+        padding: 20px 10px 35px !important;
+    }
+
+    .admin-category-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
 
 /* ==========================================
    RESPONSIVE
@@ -2128,4 +2689,744 @@ a {
   .user-header {
     padding: 0 18px;
   }
+}
+
+/* =========================================================
+   USER LAYOUT
+========================================================= */
+
+.dl-user-layout {
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.dl-user-navbar {
+    height: 78px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+}
+
+.dl-user-navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.dl-user-menu-button {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    cursor: pointer;
+}
+
+.dl-user-menu-button span {
+    width: 24px;
+    height: 2px;
+    background: #172554;
+    border-radius: 5px;
+}
+
+.dl-user-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dl-user-brand-icon {
+    width: 48px;
+    height: 48px;
+
+    background: #eef2ff;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.dl-user-brand h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #111827;
+}
+
+.dl-user-brand span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.dl-user-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.dl-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dl-user-avatar {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: #4f46e5;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.dl-user-profile-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.dl-user-profile-text strong {
+    color: #111827;
+}
+
+.dl-user-profile-text span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.dl-user-navbar-logout {
+    padding: 11px 20px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 9px;
+
+    background: white;
+    color: #111827;
+
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   USER SIDEBAR
+========================================================= */
+
+.dl-user-sidebar {
+    position: fixed;
+
+    top: 78px;
+    left: 0;
+    bottom: 0;
+
+    background: white;
+    border-right: 1px solid #e5e7eb;
+
+    z-index: 900;
+
+    transition: width 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dl-user-sidebar-open {
+    width: 240px;
+}
+
+.dl-user-sidebar-closed {
+    width: 78px;
+}
+
+.dl-user-sidebar-header {
+    padding: 28px 20px 18px;
+}
+
+.dl-user-sidebar-header h3 {
+    margin: 0;
+    font-size: 15px;
+    color: #111827;
+}
+
+.dl-user-sidebar-header p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.dl-user-sidebar-menu {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dl-user-sidebar-link,
+.dl-user-sidebar-logout {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 14px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #475569;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+
+.dl-user-sidebar-link:hover,
+.dl-user-sidebar-logout:hover {
+    background: #f1f5ff;
+}
+
+.dl-user-sidebar-active {
+    background: #eef2ff !important;
+    color: #4338ca !important;
+}
+
+.dl-user-sidebar-icon {
+    width: 30px;
+    min-width: 30px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+.dl-user-sidebar-bottom {
+    margin-top: auto;
+    padding: 15px 10px 25px;
+}
+
+
+/* =========================================================
+   USER MAIN CONTENT
+========================================================= */
+
+.dl-user-main {
+    padding-top: 78px;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    transition: margin-left 0.25s ease;
+}
+
+.dl-user-main-open {
+    margin-left: 240px;
+}
+
+.dl-user-main-closed {
+    margin-left: 78px;
+}
+
+.dl-user-content {
+    width: 100%;
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    padding: 40px 45px 60px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   USER DASHBOARD
+========================================================= */
+
+.user-dashboard {
+    width: 100%;
+}
+
+.user-dashboard-header {
+    margin-bottom: 35px;
+}
+
+.user-dashboard-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #4f46e5;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.user-dashboard-header h1 {
+    margin: 0 0 8px;
+
+    font-size: 42px;
+
+    color: #0f172a;
+}
+
+.user-dashboard-header p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 17px;
+}
+
+.user-section-heading {
+    margin-bottom: 22px;
+}
+
+.user-section-heading h2 {
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 26px;
+}
+
+.user-section-heading p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.user-stat-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.user-stat-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 26px;
+
+    min-height: 190px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.user-stat-icon {
+    width: 54px;
+    height: 54px;
+
+    border-radius: 14px;
+
+    background: #eef2ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+.user-stat-info {
+    margin-top: 22px;
+}
+
+.user-stat-info p {
+    margin: 0 0 6px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.user-stat-info h2 {
+    margin: 0 0 5px;
+
+    color: #0f172a;
+
+    font-size: 34px;
+}
+
+.user-stat-info span {
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+.user-fine-card {
+    border-color: #fed7aa;
+}
+
+
+/* =========================================================
+   QUICK ACCESS
+========================================================= */
+
+.user-quick-section {
+    margin-top: 48px;
+}
+
+.user-quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.user-quick-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.user-quick-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.user-quick-icon {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    border-radius: 14px;
+
+    background: #eef2ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.user-quick-card h3 {
+    margin: 0 0 5px;
+
+    color: #111827;
+
+    font-size: 17px;
+}
+
+.user-quick-card p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.user-quick-card > span {
+    margin-left: auto;
+
+    font-size: 24px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .user-stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .user-quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .dl-user-sidebar-open {
+        width: 220px;
+    }
+
+    .dl-user-main-open {
+        margin-left: 220px;
+    }
+
+    .dl-user-main-closed {
+        margin-left: 70px;
+    }
+
+    .dl-user-content {
+        padding: 30px 18px 45px;
+    }
+
+    .dl-user-navbar {
+        padding: 0 15px;
+    }
+
+    .dl-user-profile-text {
+        display: none;
+    }
+
+    .user-dashboard-header h1 {
+        font-size: 32px;
+    }
+
+    .user-stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   USER BROWSE BOOKS - SEARCH
+========================================================= */
+
+.user-book-search {
+    width: 100%;
+    margin: 0 auto 32px;
+    padding: 24px 26px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+}
+
+.user-book-search-heading {
+    margin-bottom: 16px;
+}
+
+.user-book-search-heading h3 {
+    margin: 0 0 5px;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.user-book-search-heading p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #64748b;
+}
+
+.user-book-search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.user-book-search-input {
+    position: relative;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+}
+
+.user-book-search-icon {
+    position: absolute;
+    left: 16px;
+
+    font-size: 18px;
+
+    pointer-events: none;
+}
+
+.user-book-search-input input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 16px 0 48px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: all 0.2s ease;
+}
+
+.user-book-search-input input::placeholder {
+    color: #94a3b8;
+}
+
+.user-book-search-input input:focus {
+    background: #ffffff;
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.10);
+}
+
+.user-book-search-button {
+    height: 50px;
+
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #4f46e5;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.user-book-search-button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+.user-book-search-button:active {
+    transform: translateY(0);
+}
+
+.user-book-clear-button {
+    height: 50px;
+
+    padding: 0 20px;
+
+    border: 1px solid #dbe2ea;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #475569;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.user-book-clear-button:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .user-book-search {
+        padding: 20px;
+    }
+
+    .user-book-search-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .user-book-search-button,
+    .user-book-clear-button {
+        width: 100%;
+    }
+
 }

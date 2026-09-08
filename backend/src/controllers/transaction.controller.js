@@ -3,9 +3,7 @@ import { User } from "../models/user.model.js";
 import { Book } from "../models/book.model.js";
 
 
-// ==========================================
 // BORROW BOOK
-// ==========================================
 
 const borrowBook = async (req, res) => {
     try {
@@ -114,9 +112,7 @@ const borrowBook = async (req, res) => {
 };
 
 
-// ==========================================
 // GET USER BORROWED BOOKS
-// ==========================================
 
 const getUserTransactions = async (req, res) => {
     try {
@@ -150,9 +146,7 @@ const getUserTransactions = async (req, res) => {
     }
 };
 
-// ==========================================
 // RETURN BOOK
-// ==========================================
 
 const returnBook = async (req, res) => {
     try {

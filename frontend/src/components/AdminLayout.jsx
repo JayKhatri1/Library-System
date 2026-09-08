@@ -1,132 +1,188 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import "../App.css";
 
 const AdminLayout = () => {
-
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     const navigate = useNavigate();
 
-    const logout = () => {
-
+    const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
 
-        navigate("/", { replace: true });
+        navigate("/login");
     };
 
+    const menuItems = [
+        {
+            name: "Dashboard",
+            path: "/admin/dashboard",
+            icon: "📊"
+        },
+        {
+            name: "Manage Users",
+            path: "/admin/users",
+            icon: "👥"
+        },
+        {
+            name: "Manage Books",
+            path: "/admin/books",
+            icon: "📚"
+        },
+        {
+            name: "Manage Categories",
+            path: "/admin/categories",
+            icon: "🏷️"
+        },
+        {
+            name: "All Transactions",
+            path: "/admin/transactions",
+            icon: "📋"
+        },
+        {
+            name: "Overdue Books",
+            path: "/admin/overdue",
+            icon: "⚠️"
+        }
+    ];
+
     return (
+        <div className="admin-layout">
 
-        <div
-            style={{
-                minHeight: "100vh",
-                display: "flex",
-                flexDirection: "column"
-            }}
-        >
+            {/* ================= NAVBAR ================= */}
 
-            {/* HEADER */}
+            <header className="admin-navbar">
 
-            <header
-                style={{
-                    padding: "15px 30px",
-                    borderBottom: "1px solid #ddd",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center"
-                }}
-            >
+                <div className="navbar-left">
 
-                <h2>
-                    📚 Digital Library - Admin
-                </h2>
+                    <button
+                        className="dl-menu-button"
+                        onClick={() => setSidebarOpen(!sidebarOpen)}
+                        aria-label="Toggle sidebar"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
 
-                <button onClick={logout}>
-                    Logout
-                </button>
+                    <div className="admin-brand">
+                        <div className="brand-icon">
+                            📚
+                        </div>
+
+                        <div>
+                            <h2>Digital Library</h2>
+                            <span>Administration Panel</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="navbar-right">
+
+                    <div className="admin-profile">
+                        <div className="admin-avatar">
+                            A
+                        </div>
+
+                        <div className="admin-profile-info">
+                            <strong>Administrator</strong>
+                            <span>Admin</span>
+                        </div>
+                    </div>
+
+                    <button
+                        className="logout-btn"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </button>
+
+                </div>
 
             </header>
 
 
-            {/* BODY */}
+            {/* ================= SIDEBAR ================= */}
 
-            <div
-                style={{
-                    display: "flex",
-                    flex: 1
-                }}
+            <aside
+                className={`admin-sidebar ${sidebarOpen ? "sidebar-open" : "sidebar-collapsed"
+                    }`}
             >
 
-                {/* SIDEBAR */}
+                <div className="sidebar-header">
 
-                <aside
-                    style={{
-                        width: "220px",
-                        padding: "30px 20px",
-                        borderRight: "1px solid #ddd"
-                    }}
-                >
+                    {sidebarOpen && (
+                        <div>
+                            <h3>Admin Menu</h3>
+                            <p>Library Management</p>
+                        </div>
+                    )}
 
-                    <h2>
-                        Admin Menu
-                    </h2>
-
-                    <p>
-                        🏠{" "}
-                        <Link to="/admin/dashboard">
-                            Dashboard
-                        </Link>
-                    </p>
-
-                    <p>
-                        👥{" "}
-                        <Link to="/admin/users">
-                            Manage Users
-                        </Link>
-                    </p>
-
-                    <p>
-                        📚{" "}
-                        <Link to="/admin/books">
-                            Manage Books
-                        </Link>
-                    </p>
-
-                    <p>
-                        🏷️{" "}
-                        <Link to="/admin/categories">
-                            Manage Categories
-                        </Link>
-                    </p>
-
-                    <p>
-                        📄{" "}
-                        <Link to="/admin/transactions">
-                            All Transactions
-                        </Link>
-                    </p>
-
-                    <p>
-                        ⚠️{" "}
-                        <Link to="/admin/overdue">
-                            Overdue Books
-                        </Link>
-                    </p>
-
-                </aside>
+                </div>
 
 
-                {/* PAGE CONTENT */}
+                <nav className="sidebar-navigation">
 
-                <main
-                    style={{
-                        flex: 1,
-                        padding: "30px"
-                    }}
-                >
+                    {menuItems.map((item) => (
 
+                        <NavLink
+                            key={item.path}
+                            to={item.path}
+                            className={({ isActive }) =>
+                                `sidebar-link ${isActive ? "active" : ""
+                                }`
+                            }
+                        >
+
+                            <span className="sidebar-icon">
+                                {item.icon}
+                            </span>
+
+                            {sidebarOpen && (
+                                <span className="sidebar-text">
+                                    {item.name}
+                                </span>
+                            )}
+
+                        </NavLink>
+
+                    ))}
+
+                </nav>
+
+
+                {/* Sidebar bottom */}
+
+                <div className="sidebar-bottom">
+
+                    <button
+                        className="sidebar-logout"
+                        onClick={handleLogout}
+                    >
+                        <span className="sidebar-icon">
+                            🚪
+                        </span>
+
+                        {sidebarOpen && (
+                            <span className="sidebar-text">
+                                Logout
+                            </span>
+                        )}
+                    </button>
+
+                </div>
+
+            </aside>
+
+
+            {/* ================= MAIN CONTENT ================= */}
+
+            <main className={`dl-admin-main ${sidebarOpen ? "dl-main-open" : "dl-main-closed"}`}>
+                <div className="dl-admin-content">
                     <Outlet />
-
-                </main>
-
-            </div>
+                </div>
+            </main>
 
         </div>
     );

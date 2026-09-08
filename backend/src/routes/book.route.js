@@ -17,9 +17,7 @@ import {
 const router = Router();
 
 
-// ==========================================
 // ADMIN - ADD BOOK
-// ==========================================
 
 router.route("/addbook").post(
     verifyToken,
@@ -28,39 +26,31 @@ router.route("/addbook").post(
 );
 
 
-// ==========================================
 // GET ALL BOOKS
 // USER + ADMIN
-// ==========================================
 
 router.route("/getall").get(
     getBooks
 );
 
 
-// ==========================================
 // SEARCH BOOKS
 // USER + ADMIN
-// ==========================================
 
 router.route("/search").get(
     searchBooks
 );
 
 
-// ==========================================
 // GET ONE BOOK
 // USER + ADMIN
-// ==========================================
 
 router.route("/:id").get(
     getBook
 );
 
 
-// ==========================================
 // ADMIN - UPDATE BOOK
-// ==========================================
 
 router.route("/:id").put(
     verifyToken,
@@ -69,9 +59,7 @@ router.route("/:id").put(
 );
 
 
-// ==========================================
 // ADMIN - DELETE BOOK
-// ==========================================
 
 router.route("/:id").delete(
     verifyToken,

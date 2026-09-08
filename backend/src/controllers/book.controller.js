@@ -1,10 +1,7 @@
 import { Book } from "../models/book.model.js";
 import { Category } from "../models/category.model.js";
 
-
-// ==========================================
 // ADD BOOK
-// ==========================================
 
 const addBook = async (req, res) => {
     try {
@@ -65,9 +62,7 @@ const addBook = async (req, res) => {
 };
 
 
-// ==========================================
 // GET ALL BOOKS
-// ==========================================
 
 const getBooks = async (req, res) => {
     try {
@@ -95,9 +90,7 @@ const getBooks = async (req, res) => {
 };
 
 
-// ==========================================
 // GET ONE BOOK
-// ==========================================
 
 const getBook = async (req, res) => {
     try {
@@ -133,9 +126,7 @@ const getBook = async (req, res) => {
 };
 
 
-// ==========================================
 // UPDATE BOOK
-// ==========================================
 
 const updateBook = async (req, res) => {
     try {
@@ -233,10 +224,7 @@ const updateBook = async (req, res) => {
     }
 };
 
-
-// ==========================================
 // DELETE BOOK
-// ==========================================
 
 const deleteBook = async (req, res) => {
     try {

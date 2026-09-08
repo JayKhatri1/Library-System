@@ -20,9 +20,7 @@ const api = axios.create({
     baseURL: API_URL
 });
 
-// ==========================================
 // AXIOS REQUEST INTERCEPTOR
-// ==========================================
 
 api.interceptors.request.use(
     (config) => {
@@ -42,9 +40,7 @@ api.interceptors.request.use(
 );
 
 
-// ==========================================
 // AXIOS RESPONSE INTERCEPTOR
-// ==========================================
 
 api.interceptors.response.use(
 

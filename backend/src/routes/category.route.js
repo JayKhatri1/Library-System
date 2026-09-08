@@ -17,9 +17,7 @@ import {
 const router = Router();
 
 
-// ==========================================
 // ADMIN - ADD CATEGORY
-// ==========================================
 
 router.route("/addcategory").post(
     verifyToken,
@@ -28,9 +26,7 @@ router.route("/addcategory").post(
 );
 
 
-// ==========================================
 // GET ALL CATEGORIES
-// ==========================================
 
 router.route("/getall").get(
     verifyToken,
@@ -38,9 +34,7 @@ router.route("/getall").get(
 );
 
 
-// ==========================================
 // GET ONE CATEGORY
-// ==========================================
 
 router.route("/:id").get(
     verifyToken,
@@ -48,9 +42,7 @@ router.route("/:id").get(
 );
 
 
-// ==========================================
 // ADMIN - UPDATE CATEGORY
-// ==========================================
 
 router.route("/:id").put(
     verifyToken,
@@ -59,9 +51,7 @@ router.route("/:id").put(
 );
 
 
-// ==========================================
 // ADMIN - DELETE CATEGORY
-// ==========================================
 
 router.route("/:id").delete(
     verifyToken,

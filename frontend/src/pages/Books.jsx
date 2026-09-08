@@ -9,9 +9,7 @@ const Books = () => {
     const [message, setMessage] = useState("");
     const [borrowingId, setBorrowingId] = useState(null);
 
-    // ==========================================
     // GET BOOKS
-    // ==========================================
 
     const getBooks = async () => {
 
@@ -39,10 +37,7 @@ const Books = () => {
         }
     };
 
-
-    // ==========================================
     // SEARCH BOOKS
-    // ==========================================
 
     const searchBooks = async () => {
 
@@ -77,9 +72,7 @@ const Books = () => {
     };
 
 
-    // ==========================================
     // BORROW BOOK
-    // ==========================================
 
     const borrowBook = async (bookId) => {
 
@@ -117,18 +110,14 @@ const Books = () => {
     };
 
 
-    // ==========================================
     // LOAD BOOKS
-    // ==========================================
 
     useEffect(() => {
         getBooks();
     }, []);
 
 
-    // ==========================================
     // LOADING
-    // ==========================================
 
     if (loading) {
         return (
@@ -145,9 +134,7 @@ const Books = () => {
     }
 
 
-    // ==========================================
     // PAGE
-    // ==========================================
 
     return (
         <div>
@@ -167,44 +154,52 @@ const Books = () => {
                 </p>
             )}
 
+            <div className="user-book-search">
 
-            {/* SEARCH */}
+                <div className="user-book-search-heading">
+                    <h3>Find a Book</h3>
+                    <p>Search by book title or author name</p>
+                </div>
 
-            <div className="book-search">
+                <div className="user-book-search-box">
 
-                <input
-                    type="text"
-                    placeholder="Search book by name..."
-                    value={search}
-                    onChange={(e) =>
-                        setSearch(e.target.value)
-                    }
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            searchBooks();
-                        }
-                    }}
-                />
+                    <div className="user-book-search-input">
 
-                <button
-                    className="primary-button"
-                    onClick={searchBooks}
-                >
-                    Search
-                </button>
+                        <span className="user-book-search-icon">
+                            🔍
+                        </span>
 
-                <button
-                    className="secondary-button"
-                    onClick={() => {
-                        setSearch("");
-                        getBooks();
-                    }}
-                >
-                    Clear
-                </button>
+                        <input
+                            type="text"
+                            placeholder="Search for a book..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+
+                    </div>
+
+                    <button
+                        className="user-book-search-button"
+                        onClick={searchBooks}
+                    >
+                        Search
+                    </button>
+
+                    {search && (
+                        <button
+                            className="user-book-clear-button"
+                            onClick={() => {
+                                setSearch("");
+                                getBooks();
+                            }}
+                        >
+                            Clear
+                        </button>
+                    )}
+
+                </div>
 
             </div>
-
 
             {/* BOOKS */}
 

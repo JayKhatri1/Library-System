@@ -22,9 +22,7 @@ import {
 const router = Router();
 
 
-// ==========================================
 // AUTH
-// ==========================================
 
 router.route("/register").post(registerUser);
 
@@ -34,9 +32,7 @@ router.route("/logout")
     .post(verifyToken, logoutUser);
 
 
-// ==========================================
 // USER PROFILE
-// ==========================================
 
 router.route("/profile").get(
     verifyToken,
@@ -44,9 +40,7 @@ router.route("/profile").get(
 );
 
 
-// ==========================================
 // USER DASHBOARD
-// ==========================================
 
 router.route("/dashboard").get(
     verifyToken,
@@ -54,9 +48,7 @@ router.route("/dashboard").get(
 );
 
 
-// ==========================================
 // BOOKS
-// ==========================================
 
 router.route("/books").get(
     verifyToken,
@@ -69,9 +61,7 @@ router.route("/books/:id").get(
 );
 
 
-// ==========================================
 // BORROWED BOOKS
-// ==========================================
 
 router.route("/borrowed-books").get(
     verifyToken,
@@ -79,9 +69,7 @@ router.route("/borrowed-books").get(
 );
 
 
-// ==========================================
 // RETURNED BOOKS
-// ==========================================
 
 router.route("/returned-books").get(
     verifyToken,
@@ -89,9 +77,7 @@ router.route("/returned-books").get(
 );
 
 
-// ==========================================
 // USER FINES
-// ==========================================
 
 router.route("/fines").get(
     verifyToken,

@@ -1,558 +1,8 @@
-
-// // import { useEffect, useState } from "react";
-// // // import { Link } from "react-router-dom";
-// // import api from "../services/api";
-// // // import Navbar from "../components/Navbar";
-
-// // const AdminDashboard = () => {
-
-// //     const [dashboard, setDashboard] = useState({
-// //         totalUsers: 0,
-// //         totalBooks: 0,
-// //         borrowedBooks: 0,
-// //         returnedBooks: 0,
-// //         overdueBooks: 0
-// //     });
-
-// //     const [loading, setLoading] = useState(true);
-// //     const [message, setMessage] = useState("");
-
-// //     const getDashboard = async () => {
-
-// //         try {
-
-// //             setLoading(true);
-
-// //             const response = await api.get(
-// //                 "/admin/dashboard"
-// //             );
-
-// //             console.log(
-// //                 "ADMIN DASHBOARD:",
-// //                 response.data
-// //             );
-
-// //             setDashboard(
-// //                 response.data.dashboard || {
-// //                     totalUsers: 0,
-// //                     totalBooks: 0,
-// //                     borrowedBooks: 0,
-// //                     returnedBooks: 0,
-// //                     overdueBooks: 0
-// //                 }
-// //             );
-
-// //             setMessage("");
-
-// //         } catch (error) {
-
-// //             console.log(
-// //                 "ADMIN DASHBOARD ERROR:",
-// //                 error
-// //             );
-
-// //             setMessage(
-// //                 error.response?.data?.message ||
-// //                 "Unable to load admin dashboard"
-// //             );
-
-// //         } finally {
-
-// //             setLoading(false);
-// //         }
-// //     };
-
-
-// //     useEffect(() => {
-// //         getDashboard();
-// //     }, []);
-
-
-// //     if (loading) {
-// //         return (
-// //             <div>
-// //                 {/* <Navbar role="admin" /> */}
-
-// //                 <div style={{ padding: "30px" }}>
-// //                     <h2>Loading dashboard...</h2>
-// //                 </div>
-// //             </div>
-// //         );
-// //     }
-
-
-// //     return (
-// //         <div>
-
-
-// //             <div style={{ padding: "30px" }}>
-
-// //                 <h1>
-// //                     Admin Dashboard
-// //                 </h1>
-
-// //                 <p>
-// //                     Welcome to the library administration panel!
-// //                 </p>
-
-
-// //                 {message && (
-// //                     <p>
-// //                         {message}
-// //                     </p>
-// //                 )}
-
-
-// //                 {/* =================================
-// //                     LIBRARY STATISTICS
-// //                 ================================= */}
-
-// //                 <h2 style={{ marginTop: "30px" }}>
-// //                     Library Statistics
-// //                 </h2>
-
-
-// //                 <div
-// //                     style={{
-// //                         display: "grid",
-// //                         gridTemplateColumns:
-// //                             "repeat(5, 1fr)",
-// //                         gap: "20px",
-// //                         marginTop: "20px"
-// //                     }}
-// //                 >
-
-// //                     {/* USERS */}
-
-// //                     <div
-// //                         style={{
-// //                             padding: "20px",
-// //                             border: "1px solid #ddd",
-// //                             borderRadius: "10px"
-// //                         }}
-// //                     >
-
-// //                         <h3>
-// //                             Total Users
-// //                         </h3>
-
-// //                         <h1>
-// //                             {dashboard.totalUsers}
-// //                         </h1>
-
-// //                     </div>
-
-
-// //                     {/* BOOKS */}
-
-// //                     <div
-// //                         style={{
-// //                             padding: "20px",
-// //                             border: "1px solid #ddd",
-// //                             borderRadius: "10px"
-// //                         }}
-// //                     >
-
-// //                         <h3>
-// //                             Total Books
-// //                         </h3>
-
-// //                         <h1>
-// //                             {dashboard.totalBooks}
-// //                         </h1>
-
-// //                     </div>
-
-
-// //                     {/* BORROWED */}
-
-// //                     <div
-// //                         style={{
-// //                             padding: "20px",
-// //                             border: "1px solid #ddd",
-// //                             borderRadius: "10px"
-// //                         }}
-// //                     >
-
-// //                         <h3>
-// //                             Borrowed Books
-// //                         </h3>
-
-// //                         <h1>
-// //                             {dashboard.borrowedBooks}
-// //                         </h1>
-
-// //                     </div>
-
-
-// //                     {/* RETURNED */}
-
-// //                     <div
-// //                         style={{
-// //                             padding: "20px",
-// //                             border: "1px solid #ddd",
-// //                             borderRadius: "10px"
-// //                         }}
-// //                     >
-
-// //                         <h3>
-// //                             Returned Books
-// //                         </h3>
-
-// //                         <h1>
-// //                             {dashboard.returnedBooks}
-// //                         </h1>
-
-// //                     </div>
-
-
-// //                     {/* OVERDUE */}
-
-// //                     <div
-// //                         style={{
-// //                             padding: "20px",
-// //                             border: "1px solid #ddd",
-// //                             borderRadius: "10px"
-// //                         }}
-// //                     >
-
-// //                         <h3>
-// //                             Overdue Books
-// //                         </h3>
-
-// //                         <h1>
-// //                             {dashboard.overdueBooks}
-// //                         </h1>
-
-// //                     </div>
-
-// //                 </div>
-
-
-// //                 {/* =================================
-// //                     ADMIN ACTIONS
-// //                 ================================= */}
-
-// //                 {/* <h2 style={{ marginTop: "40px" }}>
-// //                     Management
-// //                 </h2> */}
-
-// // {/* 
-// //                 <div
-// //                     style={{
-// //                         display: "flex",
-// //                         flexWrap: "wrap",
-// //                         gap: "15px",
-// //                         marginTop: "20px"
-// //                     }}
-// //                 >
-
-// //                     <Link to="/admin/users">
-// //                         <button>
-// //                             Manage Users
-// //                         </button>
-// //                     </Link>
-
-
-// //                     <Link to="/admin/books">
-// //                         <button>
-// //                             Manage Books
-// //                         </button>
-// //                     </Link>
-
-
-// //                     <Link to="/admin/categories">
-// //                         <button>
-// //                             Manage Categories
-// //                         </button>
-// //                     </Link>
-
-
-// //                     <Link to="/admin/transactions">
-// //                         <button>
-// //                             All Transactions
-// //                         </button>
-// //                     </Link>
-
-
-// //                     <Link to="/admin/overdue">
-// //                         <button>
-// //                             Overdue Books
-// //                         </button>
-// //                     </Link>
-
-// //                 </div>  */}
-
-// //             </div>
-
-// //         </div>
-// //     );
-// // };
-
-// // export default AdminDashboard;
-
-// import { useEffect, useState } from "react";
-// import api from "../services/api";
-
-// const AdminDashboard = () => {
-
-//     const [dashboard, setDashboard] = useState({
-//         totalUsers: 0,
-//         totalBooks: 0,
-//         borrowedBooks: 0,
-//         returnedBooks: 0,
-//         overdueBooks: 0
-//     });
-
-//     const [loading, setLoading] = useState(true);
-//     const [message, setMessage] = useState("");
-
-
-//     // ==========================================
-//     // GET ADMIN DASHBOARD
-//     // ==========================================
-
-//     const getDashboard = async () => {
-
-//         try {
-
-//             setLoading(true);
-//             setMessage("");
-
-//             const response = await api.get(
-//                 "/admin/dashboard"
-//             );
-
-//             console.log(
-//                 "ADMIN DASHBOARD:",
-//                 response.data
-//             );
-
-//             setDashboard(
-//                 response.data.dashboard || {
-//                     totalUsers: 0,
-//                     totalBooks: 0,
-//                     borrowedBooks: 0,
-//                     returnedBooks: 0,
-//                     overdueBooks: 0
-//                 }
-//             );
-
-//         } catch (error) {
-
-//             console.log(
-//                 "ADMIN DASHBOARD ERROR:",
-//                 error
-//             );
-
-//             setMessage(
-//                 error.response?.data?.message ||
-//                 "Unable to load admin dashboard"
-//             );
-
-//         } finally {
-
-//             setLoading(false);
-//         }
-//     };
-
-
-//     // ==========================================
-//     // LOAD DASHBOARD
-//     // ==========================================
-
-//     useEffect(() => {
-//         getDashboard();
-//     }, []);
-
-
-//     // ==========================================
-//     // LOADING
-//     // ==========================================
-
-//     if (loading) {
-
-//         return (
-//             <div>
-
-//                 <h2>
-//                     Loading dashboard...
-//                 </h2>
-
-//             </div>
-//         );
-//     }
-
-
-//     // ==========================================
-//     // DASHBOARD
-//     // ==========================================
-
-//     return (
-
-//         <div>
-
-//             <h1>
-//                 Admin Dashboard
-//             </h1>
-
-//             <p>
-//                 Welcome to the library administration panel!
-//             </p>
-
-
-//             {message && (
-//                 <p>
-//                     {message}
-//                 </p>
-//             )}
-
-
-//             {/* ==========================================
-//                 LIBRARY STATISTICS
-//             ========================================== */}
-
-//             <h2
-//                 style={{
-//                     marginTop: "30px"
-//                 }}
-//             >
-//                 Library Statistics
-//             </h2>
-
-
-//             <div
-//                 style={{
-//                     display: "grid",
-//                     gridTemplateColumns:
-//                         "repeat(auto-fit, minmax(160px, 1fr))",
-//                     gap: "20px",
-//                     marginTop: "20px"
-//                 }}
-//             >
-
-
-//                 {/* TOTAL USERS */}
-
-//                 <div
-//                     style={{
-//                         padding: "20px",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "10px",
-//                         textAlign: "center"
-//                     }}
-//                 >
-
-//                     <h3>
-//                         Total Users
-//                     </h3>
-
-//                     <h1>
-//                         {dashboard.totalUsers}
-//                     </h1>
-
-//                 </div>
-
-
-//                 {/* TOTAL BOOKS */}
-
-//                 <div
-//                     style={{
-//                         padding: "20px",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "10px",
-//                         textAlign: "center"
-//                     }}
-//                 >
-
-//                     <h3>
-//                         Total Books
-//                     </h3>
-
-//                     <h1>
-//                         {dashboard.totalBooks}
-//                     </h1>
-
-//                 </div>
-
-
-//                 {/* BORROWED BOOKS */}
-
-//                 <div
-//                     style={{
-//                         padding: "20px",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "10px",
-//                         textAlign: "center"
-//                     }}
-//                 >
-
-//                     <h3>
-//                         Borrowed Books
-//                     </h3>
-
-//                     <h1>
-//                         {dashboard.borrowedBooks}
-//                     </h1>
-
-//                 </div>
-
-
-//                 {/* RETURNED BOOKS */}
-
-//                 <div
-//                     style={{
-//                         padding: "20px",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "10px",
-//                         textAlign: "center"
-//                     }}
-//                 >
-
-//                     <h3>
-//                         Returned Books
-//                     </h3>
-
-//                     <h1>
-//                         {dashboard.returnedBooks}
-//                     </h1>
-
-//                 </div>
-
-
-//                 {/* OVERDUE BOOKS */}
-
-//                 <div
-//                     style={{
-//                         padding: "20px",
-//                         border: "1px solid #ddd",
-//                         borderRadius: "10px",
-//                         textAlign: "center"
-//                     }}
-//                 >
-
-//                     <h3>
-//                         Overdue Books
-//                     </h3>
-
-//                     <h1>
-//                         {dashboard.overdueBooks}
-//                     </h1>
-
-//                 </div>
-
-//             </div>
-
-//         </div>
-//     );
-// };
-
-// export default AdminDashboard;
 import { useEffect, useState } from "react";
-import api from "../services/api";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 const AdminDashboard = () => {
+
     const [dashboard, setDashboard] = useState({
         totalUsers: 0,
         totalBooks: 0,
@@ -562,211 +12,394 @@ const AdminDashboard = () => {
     });
 
     const [loading, setLoading] = useState(true);
-    const [message, setMessage] = useState("");
 
-    const getDashboard = async () => {
-        try {
-            setLoading(true);
-
-            const response = await api.get("/admin/dashboard");
-
-            console.log("ADMIN DASHBOARD:", response.data);
-
-            setDashboard({
-                totalUsers: response.data.dashboard?.totalUsers || 0,
-                totalBooks: response.data.dashboard?.totalBooks || 0,
-                borrowedBooks:
-                    response.data.dashboard?.borrowedBooks || 0,
-                returnedBooks:
-                    response.data.dashboard?.returnedBooks || 0,
-                overdueBooks:
-                    response.data.dashboard?.overdueBooks || 0
-            });
-
-            setMessage("");
-        } catch (error) {
-            console.log("ADMIN DASHBOARD ERROR:", error);
-
-            setMessage(
-                error.response?.data?.message ||
-                "Unable to load admin dashboard"
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
+    const API_URL =
+        import.meta.env.VITE_API_URL ||
+        "https://library-system-backend-qkjn.onrender.com";
 
     useEffect(() => {
-        getDashboard();
-    }, []);
 
-    if (loading) {
-        return (
-            <div className="admin-page-message">
-                <h2>Loading admin dashboard...</h2>
-            </div>
-        );
-    }
+        const fetchDashboard = async () => {
+
+            try {
+
+                const token =
+                    localStorage.getItem("token");
+
+                const response = await axios.get(
+                    // `${API_URL}/api/v1/admin/dashboard`,
+                    `${API_URL}/admin/dashboard`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+
+                /*
+                 * Keep this mapping according to
+                 * your backend response.
+                 */
+
+                const data =
+                    response.data.dashboard ||
+                    response.data;
+
+                setDashboard({
+                    totalUsers:
+                        data.totalUsers || 0,
+
+                    totalBooks:
+                        data.totalBooks || 0,
+
+                    borrowedBooks:
+                        data.borrowedBooks ||
+                        data.totalBorrowedBooks ||
+                        0,
+
+                    returnedBooks:
+                        data.returnedBooks ||
+                        data.totalReturnedBooks ||
+                        0,
+
+                    overdueBooks:
+                        data.overdueBooks || 0
+                });
+
+            } catch (error) {
+
+                console.error(
+                    "ADMIN DASHBOARD ERROR:",
+                    error
+                );
+
+            } finally {
+
+                setLoading(false);
+
+            }
+        };
+
+        fetchDashboard();
+
+    }, [API_URL]);
+
+
+    const stats = [
+        {
+            title: "Total Users",
+            value: dashboard.totalUsers,
+            icon: "👥",
+            description: "Registered users"
+        },
+        {
+            title: "Total Books",
+            value: dashboard.totalBooks,
+            icon: "📚",
+            description: "Books in library"
+        },
+        {
+            title: "Borrowed Books",
+            value: dashboard.borrowedBooks,
+            icon: "📖",
+            description: "Currently borrowed"
+        },
+        {
+            title: "Returned Books",
+            value: dashboard.returnedBooks,
+            icon: "↩️",
+            description: "Successfully returned"
+        },
+        {
+            title: "Overdue Books",
+            value: dashboard.overdueBooks,
+            icon: "⚠️",
+            description: "Require attention",
+            warning: true
+        }
+    ];
+
 
     return (
-        <div className="admin-dashboard">
 
-            {/* Header */}
+        <div className="professional-dashboard">
 
-            <div className="admin-dashboard-header">
+            {/* ================= HEADER ================= */}
+
+            <section className="dashboard-header">
+
                 <div>
-                    <h1 className="admin-dashboard-title">
+
+                    <p className="dashboard-label">
+                        ADMINISTRATION
+                    </p>
+
+                    <h1>
                         Admin Dashboard
                     </h1>
 
-                    <p className="admin-dashboard-welcome">
+                    <p>
+                        Welcome back, Administrator.
                         Manage your digital library from one place.
                     </p>
-                </div>
-            </div>
 
-            {message && (
-                <p className="admin-page-message">
-                    {message}
-                </p>
-            )}
-
-            {/* Statistics */}
-
-            <h2 className="admin-section-title">
-                Library Overview
-            </h2>
-
-            <div className="admin-stat-grid">
-
-                <div className="admin-stat-card">
-                    <div className="admin-stat-icon">
-                        👥
-                    </div>
-
-                    <div>
-                        <p>Total Users</p>
-                        <h2>{dashboard.totalUsers}</h2>
-                    </div>
                 </div>
 
-                <div className="admin-stat-card">
-                    <div className="admin-stat-icon">
-                        📚
-                    </div>
+            </section>
+
+
+            {/* ================= STATISTICS ================= */}
+
+            <section className="dashboard-section">
+
+                <div className="section-heading">
 
                     <div>
-                        <p>Total Books</p>
-                        <h2>{dashboard.totalBooks}</h2>
+                        <h2>
+                            Library Overview
+                        </h2>
+
+                        <p>
+                            Current library statistics
+                        </p>
                     </div>
+
                 </div>
 
-                <div className="admin-stat-card">
-                    <div className="admin-stat-icon">
-                        📖
-                    </div>
 
-                    <div>
-                        <p>Borrowed Books</p>
-                        <h2>{dashboard.borrowedBooks}</h2>
-                    </div>
+                <div className="statistics-grid">
+
+                    {stats.map((stat) => (
+
+                        <div
+                            className={`stat-card ${
+                                stat.warning
+                                    ? "warning-card"
+                                    : ""
+                            }`}
+                            key={stat.title}
+                        >
+
+                            <div className="stat-card-top">
+
+                                <div className="stat-icon">
+                                    {stat.icon}
+                                </div>
+
+                                {stat.warning && (
+                                    <span className="status-dot">
+                                    </span>
+                                )}
+
+                            </div>
+
+                            <div className="stat-content">
+
+                                <p>
+                                    {stat.title}
+                                </p>
+
+                                <h3>
+                                    {loading
+                                        ? "..."
+                                        : stat.value}
+                                </h3>
+
+                                <span>
+                                    {stat.description}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    ))}
+
                 </div>
 
-                <div className="admin-stat-card">
-                    <div className="admin-stat-icon">
-                        ✅
-                    </div>
+            </section>
+
+
+            {/* ================= QUICK MANAGEMENT ================= */}
+
+            <section className="dashboard-section">
+
+                <div className="section-heading">
 
                     <div>
-                        <p>Returned Books</p>
-                        <h2>{dashboard.returnedBooks}</h2>
+                        <h2>
+                            Quick Management
+                        </h2>
+
+                        <p>
+                            Frequently used administration tools
+                        </p>
                     </div>
+
                 </div>
 
-                <div className="admin-stat-card overdue-card">
-                    <div className="admin-stat-icon">
-                        ⚠️
-                    </div>
 
-                    <div>
-                        <p>Overdue Books</p>
-                        <h2>{dashboard.overdueBooks}</h2>
-                    </div>
+                <div className="quick-management-grid">
+
+                    <a
+                        href="/admin/users"
+                        className="management-card"
+                    >
+
+                        <div className="management-icon">
+                            👥
+                        </div>
+
+                        <div>
+                            <h3>
+                                Manage Users
+                            </h3>
+
+                            <p>
+                                View and manage registered users.
+                            </p>
+                        </div>
+
+                        <span className="management-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="/admin/books"
+                        className="management-card"
+                    >
+
+                        <div className="management-icon">
+                            📚
+                        </div>
+
+                        <div>
+                            <h3>
+                                Manage Books
+                            </h3>
+
+                            <p>
+                                Add, edit and delete books.
+                            </p>
+                        </div>
+
+                        <span className="management-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="/admin/categories"
+                        className="management-card"
+                    >
+
+                        <div className="management-icon">
+                            🏷️
+                        </div>
+
+                        <div>
+                            <h3>
+                                Categories
+                            </h3>
+
+                            <p>
+                                Manage book categories.
+                            </p>
+                        </div>
+
+                        <span className="management-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="/admin/transactions"
+                        className="management-card"
+                    >
+
+                        <div className="management-icon">
+                            📋
+                        </div>
+
+                        <div>
+                            <h3>
+                                Transactions
+                            </h3>
+
+                            <p>
+                                View all borrowing activity.
+                            </p>
+                        </div>
+
+                        <span className="management-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="/admin/overdue"
+                        className="management-card"
+                    >
+
+                        <div className="management-icon">
+                            ⚠️
+                        </div>
+
+                        <div>
+                            <h3>
+                                Overdue Books
+                            </h3>
+
+                            <p>
+                                Check books that need attention.
+                            </p>
+                        </div>
+
+                        <span className="management-arrow">
+                            →
+                        </span>
+
+                    </a>
+
                 </div>
 
-            </div>
+            </section>
 
-            {/* Quick Management */}
 
-            <h2 className="admin-section-title">
-                Quick Management
-            </h2>
+            {/* ================= ADMIN INFO ================= */}
 
-            <div className="admin-management-grid">
+            <section className="dashboard-info">
 
-                <Link
-                    to="/admin/users"
-                    className="admin-management-card"
-                >
-                    <span>👥</span>
+                <div className="info-icon">
+                    💡
+                </div>
 
-                    <div>
-                        <h3>Manage Users</h3>
-                        <p>View all registered users.</p>
-                    </div>
-                </Link>
+                <div>
 
-                <Link
-                    to="/admin/books"
-                    className="admin-management-card"
-                >
-                    <span>📚</span>
+                    <h3>
+                        Administration Overview
+                    </h3>
 
-                    <div>
-                        <h3>Manage Books</h3>
-                        <p>Add, edit and delete books.</p>
-                    </div>
-                </Link>
+                    <p>
+                        Use the sidebar to manage users, books,
+                        categories and library transactions.
+                    </p>
 
-                <Link
-                    to="/admin/categories"
-                    className="admin-management-card"
-                >
-                    <span>📂</span>
+                </div>
 
-                    <div>
-                        <h3>Categories</h3>
-                        <p>Manage book categories.</p>
-                    </div>
-                </Link>
-
-                <Link
-                    to="/admin/transactions"
-                    className="admin-management-card"
-                >
-                    <span>📋</span>
-
-                    <div>
-                        <h3>Transactions</h3>
-                        <p>View all borrowing activity.</p>
-                    </div>
-                </Link>
-
-                <Link
-                    to="/admin/overdue"
-                    className="admin-management-card"
-                >
-                    <span>⚠️</span>
-
-                    <div>
-                        <h3>Overdue Books</h3>
-                        <p>Check books that are overdue.</p>
-                    </div>
-                </Link>
-
-            </div>
+            </section>
 
         </div>
+
     );
 };
 
