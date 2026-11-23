@@ -9,14 +9,18 @@ app.set("trust proxy", 1);
 
 app.use(helmet());
 
+
 app.use(cors({
     origin: [
         "http://localhost:5173",
 
-        // Stable production domain
+        // Current Vercel production domain
+        "https://library-system-jaykhatri1.vercel.app",
+
+        // Previous Vercel production domain
         "https://library-system-three-sigma.vercel.app",
 
-        // Vercel deployment/preview URLs
+        // Vercel preview deployment URLs
         /^https:\/\/library-system-[a-z0-9-]+-jaykhatri1\.vercel\.app$/
     ],
     credentials: true,
@@ -25,6 +29,7 @@ app.use(cors({
         "Content-Type",
         "Authorization"
     ],
+
     methods: [
         "GET",
         "POST",
