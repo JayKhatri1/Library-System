@@ -18,7 +18,12 @@ const addCategory = async (req, res) => {
 
         // Check existing category
         const existingCategory = await Category.findOne({
-            name: name.trim()
+            // name: name.trim()
+            _id: { $ne: id },
+            name: {
+                $regex: `^${name.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`,
+                $options: "i"
+            }
         });
 
         if (existingCategory) {
@@ -69,7 +74,7 @@ const getCategories = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -101,7 +106,7 @@ const getCategory = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -150,7 +155,7 @@ const updateCategory = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -199,7 +204,7 @@ const deleteCategory = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
