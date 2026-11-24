@@ -210,7 +210,7 @@ const updateBook = async (req, res) => {
                 availableQuantity: newAvailableQuantity
             },
             {
-                new: true,
+                returnDocument: "after",
                 runValidators: true
             }
         ).populate("category", "name");

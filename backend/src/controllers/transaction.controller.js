@@ -107,7 +107,7 @@ const borrowBook = async (req, res) => {
             {
                 $inc: { availableQuantity: -1 }
             },
-            { new: true }
+            { returnDocument: "after" }
         );
 
         if (!book) {
@@ -274,7 +274,7 @@ const returnBook = async (req, res) => {
                 }
             },
             {
-                new: true,
+                returnDocument: "after",
                 runValidators: true
             }
         )
