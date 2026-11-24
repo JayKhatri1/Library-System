@@ -233,7 +233,7 @@ const UserDashboard = () => {
                             </h2>
 
                             <span>
-                                Outstanding fine
+                                Total late return charges
                             </span>
 
                         </div>

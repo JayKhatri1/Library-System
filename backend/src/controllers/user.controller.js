@@ -50,7 +50,7 @@ const registerUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -74,9 +74,9 @@ const loginUser = async (req, res) => {
             email.trim().toLowerCase();
 
 
-    
+
         // ADMIN LOGIN
-    
+
 
         if (
             process.env.ADMIN_EMAIL &&
@@ -102,9 +102,9 @@ const loginUser = async (req, res) => {
         }
 
 
-    
+
         // FIND USER
-    
+
 
         const user = await User.findOne({
             email: normalizedEmail
@@ -117,9 +117,9 @@ const loginUser = async (req, res) => {
         }
 
 
-    
+
         // COMPARE PASSWORD
-    
+
 
         const isPasswordCorrect =
             await user.comparePassword(password);
@@ -131,9 +131,9 @@ const loginUser = async (req, res) => {
         }
 
 
-    
+
         // USER OBJECT
-    
+
 
         const loggedInUser = {
             id: user._id.toString(),
@@ -143,9 +143,9 @@ const loginUser = async (req, res) => {
         };
 
 
-    
+
         // GENERATE JWT
-    
+
 
         const token = generateToken(loggedInUser);
 
@@ -162,7 +162,7 @@ const loginUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -184,7 +184,7 @@ const logoutUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-        
+
         });
     }
 };
@@ -219,7 +219,7 @@ const getUserProfile = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -258,7 +258,7 @@ const getMyBorrowedBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -297,7 +297,7 @@ const getMyReturnedBooks = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-        
+
         });
     }
 };
@@ -315,6 +315,7 @@ const getMyFines = async (req, res) => {
         const transactions =
             await Transaction.find({
                 user: userId,
+                status: "returned",
                 fine: { $gt: 0 }
             })
                 .populate("book", "title author")
@@ -335,7 +336,7 @@ const getMyFines = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -380,9 +381,11 @@ const getUserDashboard = async (req, res) => {
             });
 
         // Get transactions having fine
+        // Get returned transactions having fine
         const fines =
             await Transaction.find({
                 user: user._id,
+                status: "returned",
                 fine: { $gt: 0 }
             });
 
@@ -413,7 +416,7 @@ const getUserDashboard = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -486,7 +489,7 @@ const getAllBooksForUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
@@ -523,7 +526,7 @@ const getBookByIdForUser = async (req, res) => {
 
         return res.status(500).json({
             message: "Internal server error",
-            
+
         });
     }
 };
